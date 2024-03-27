@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseMigrationSettings" lastSelectedDirectory="src/main/resources/db/migration" />
+  <component name="JpaLiquibaseChangesConfig">
+    <exclude-change idName="scm_mentor" tagName="createTable" />
+    <exclude-change idName="j_mentor" tagName="createTable" />
+    <exclude-change idName="j_student" tagName="createTable" />
+    <exclude-change idName="j_ta" tagName="createTable" />
+    <exclude-change idName="j_user" tagName="createTable" />
+    <exclude-change idName="scm_student" tagName="createTable" />
+    <exclude-change idName="scm_ta" tagName="createTable" />
+    <exclude-change idName="tpc_mentor" tagName="createTable" />
+    <exclude-change idName="st_user" tagName="createTable" />
+    <exclude-change idName="tpc_user" tagName="createTable" />
+    <exclude-change idName="tpc_student" tagName="createTable" />
+    <exclude-change idName="FK_J_MENTOR_ON_ID" tagName="addForeignKeyConstraint" />
+    <exclude-change idName="FK_J_STUDENT_ON_ID" tagName="addForeignKeyConstraint" />
+    <exclude-change idName="FK_J_TA_ON_ID" tagName="addForeignKeyConstraint" />
+    <exclude-change idName="tpc_ta" tagName="createTable" />
+  </component>
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="Default">
+        <packages>
+          <package value="com.product.product" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>
