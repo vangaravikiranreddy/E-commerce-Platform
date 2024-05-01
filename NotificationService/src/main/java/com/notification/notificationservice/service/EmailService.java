@@ -1,5 +1,6 @@
 package com.notification.notificationservice.service;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.mail.Message;
@@ -11,12 +12,18 @@ import java.util.Date;
 import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
 
 @Service
 public class EmailService {
 
+    @Value("${sender.email}")
+    private String senderEmail;
+
+    @Value("${sender.password}")
+    private String senderPassword;
+
     public void sendEmail(String senderEmail, String recipientEmail, String subject, String body) {
+        System.out.println("Listner received: " + body + " 😀");
         // Set up mail server properties
         Properties properties = System.getProperties();
         properties.setProperty("mail.smtp.host", "smtp.gmail.com");
@@ -27,7 +34,7 @@ public class EmailService {
         // Create a mail session with authentication
         Session session = Session.getInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("r87533094@gmail.com", "");
+                return new PasswordAuthentication(senderEmail, senderPassword);
             }
         });
 
@@ -48,7 +55,7 @@ public class EmailService {
             msg.setSubject(subject, "UTF-8");
 
             // Set email body
-            msg.setText(body, "UTF-8");
+            msg.setText(body , "UTF-8");
 
             // Set sent date
             msg.setSentDate(new Date());
